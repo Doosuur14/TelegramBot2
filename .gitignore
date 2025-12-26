@@ -13,6 +13,10 @@ venv/
 *.egg-info/
 dist/
 build/
+*_cffi_backend.*.so
+*_cython.*.so
+*_rust.*.so
+*.so
 
 # Terraform local files
 *.tfstate
@@ -21,4 +25,5 @@ build/
 
 # OS files
 .DS_Store
+
 
