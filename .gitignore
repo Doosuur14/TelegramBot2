@@ -4,6 +4,13 @@ __pycache__/
 *.pyo
 *.pyd
 
+*.zip
+.terraform/
+build/
+dist/
+*.pyc
+
+
 # Virtual environment
 venv/
 .env
