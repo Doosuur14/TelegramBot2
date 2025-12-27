@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  title: Vvot23 Telegram Video Bot
+  version: 1.0.0
+
+paths:
+  /webhook:
+    post:
+      x-yc-apigateway-integration:
+        type: cloud_ymq
+        folder_id: b1g71e95h51okii30p25  # Queue's actual folder
+        queue_url: vvot23-queue-receiver
+        action: SendMessage
+        service_account_id: ajeu054qo6mfgco223eh
+
+  /video/{key}:
+    get:
+      parameters:
+        - name: key
+          in: path
+          required: true
+          schema:
+            type: string
+      x-yc-apigateway-integration:
+        type: object_storage
+        bucket: ${yandex_storage_bucket.tg_video.bucket}  # This might also need fixing
+        object: '{key}'
